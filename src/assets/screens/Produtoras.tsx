@@ -8,6 +8,7 @@ import Avatar from '@mui/material/Avatar';
 import { DeleteOutline, DriveFileRenameOutline } from '@mui/icons-material';
 import ModalCadastroProdutora from "../modal/ModalCadastroProdutora";
 import React, { useState } from 'react';
+import FiltroProdutora from "../components/FiltroProdutora"
 
 
 // Dados de exemplo para a tabela
@@ -39,7 +40,7 @@ const columns = [
   {
     field: 'nome',
     headerName: 'Nome',
-    width: 300,
+    width: 220,
     renderCell: (params) => (
       <Chip
         avatar={<Avatar alt={params.value} src="/static/images/avatar/1.jpg" />}
@@ -48,18 +49,20 @@ const columns = [
       />
     ),
   },
-  { field: 'data', headerName: 'Data Cadastro', width: 180 },
-  { field: 'plano', headerName: 'Plano', width: 180 },
-  { field: 'usuarios', headerName: 'Usuários', width: 180 },
-  { field: 'status', headerName: 'Status', width: 130, renderCell: (params) => <Chip
-  avatar={<Avatar alt={params.value} src="/static/images/avatar/1.jpg" />}
-  label={params.value}
-  variant="outlined"
-/> },
+  { field: 'data', headerName: 'Data Cadastro', width: 130 },
+  { field: 'plano', headerName: 'Plano', width: 130 },
+  { field: 'usuarios', headerName: 'Usuários', width: 100 },
+  {
+    field: 'status', headerName: 'Status', width: 130, renderCell: (params) => <Chip
+      avatar={<Avatar alt={params.value} src="/static/images/avatar/1.jpg" />}
+      label={params.value}
+      variant="outlined"
+    />
+  },
   {
     field: 'acoes',
     headerName: 'Ações',
-    width: 150,
+    width: 90,
     renderCell: (params) => (
       <div className="flex gap-3 mt-3">
         <DeleteOutline sx={{ color: '#FF9800', fontSize: 24 }} />
@@ -71,15 +74,15 @@ const columns = [
 
 export default function Produtoras() {
   const [openModal, setOpenModal] = useState(false);
-  
-    const handleAddNovoClick = () => {
-      setOpenModal(true);
-    };
-  
-    const handleCloseModal = () => {
-      setOpenModal(false);
-    };
-  
+
+  const handleAddNovoClick = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
 
   return (
     <div className="flex flex-col w-[100vw] bg-[#e2e2e2]">
@@ -87,18 +90,22 @@ export default function Produtoras() {
         <Sidebar />
         <div className=" w-[85vw]">
           <Header />
-          <HeaderPages titulo={"Produtoras"} total={`${rows.length} produtoras`} />
-          <div className="flex bg-white flex-wrap shadow-md rounded-xl p-8 mx-8 mb-5 gap-9">
-            <DataGrid
-              rows={rows}
-              columns={columns}
-              pagination
-              pageSize={8}
-              rowsPerPageOptions={[8, 16, 24]}
-              checkboxSelection
-              components={{ pagination: GridPagination }}
-            />
+          <HeaderPages titulo={"Produtoras"} total={`${rows.length} produtoras`} handleAddNovoClick={handleAddNovoClick} />
+          <div className="flex gap-5 p-5">
+            <div className="flex w-[58vw] bg-white flex-wrap shadow-md rounded-xl p-8 gap-9">
+              <DataGrid
+                rows={rows}
+                columns={columns}
+                pagination
+                pageSize={8}
+                rowsPerPageOptions={[8, 16, 24]}
+                checkboxSelection
+                components={{ pagination: GridPagination }}
+              />
+            </div>
+            <FiltroProdutora />
           </div>
+
         </div>
       </div>
       <Footer />

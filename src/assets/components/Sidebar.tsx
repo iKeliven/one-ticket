@@ -17,10 +17,9 @@ export default function Sidebar() {
 
         <div className="flex flex-col top-0 justify-start items-start">
           <div className="flex flex-col items-start">
-          <Link to="/">
-            <SidebarItems label="Página Inicial" active={location.pathname === '/'}> 
+          <Link to="/admin">
+            <SidebarItems label="Página Inicial" active={location.pathname === '/admin'}> 
                   <AutoAwesomeMosaicOutlinedIcon sx={{ color: '#FF9800', fontSize: 40 }} />
-                
               </SidebarItems>
             </Link>
             <Link to="/estabelecimentos">

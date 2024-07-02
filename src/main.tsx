@@ -23,7 +23,7 @@ createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path="/App" element={<Home />} />
+        <Route path="/admin" element={<Home />} />
         <Route path="/estabelecimentos" element={<Locais />} />
         <Route path="/planos" element={<Planos />} /> d
         <Route path="/produtoras" element={<Produtoras />} />

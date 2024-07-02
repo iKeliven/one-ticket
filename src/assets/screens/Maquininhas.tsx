@@ -5,8 +5,9 @@ import HeaderPages from "../components/HeaderPages";
 import { DataGrid, GridPagination } from '@mui/x-data-grid';
 import Chip from '@mui/material/Chip';
 import { DeleteOutline, DriveFileRenameOutline } from '@mui/icons-material';
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ModalCadastroMaquininha from "../modal/ModalCadastroMaquininha.tsx";
+import FiltroMaquininha from "../components/FiltroMaquininha"
 
 // Dados de exemplo para a tabela de maquininhas (10 primeiras maquininhas)
 const rows = [
@@ -23,17 +24,19 @@ const rows = [
 ];
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 90 },
-  { field: 'numeroMaquininha', headerName: 'Número Maquininha', width: 230 },
-  { field: 'nomeProdutor', headerName: 'Nome do Produtor', width: 220 },
-  { field: 'cidade', headerName: 'Cidade', width: 200 },
-  { field: 'dataCadastro', headerName: 'Data Cadastro', width: 200 },
-  { field: 'status', headerName: 'Status', width: 150
-  , renderCell: (params) => <Chip label={params.value} color={params.value === 'Ativo' ? 'success' : 'error'} /> },
+  { field: 'id', headerName: 'ID', width: 80 },
+  { field: 'numeroMaquininha', headerName: 'Número', width: 160 },
+  { field: 'nomeProdutor', headerName: 'Nome do Produtor', width: 150 },
+  { field: 'cidade', headerName: 'Cidade', width: 150 },
+  { field: 'dataCadastro', headerName: 'Data Cadastro', width: 150 },
+  {
+    field: 'status', headerName: 'Status', width: 100
+    , renderCell: (params) => <Chip label={params.value} color={params.value === 'Ativo' ? 'success' : 'error'} />
+  },
   {
     field: 'acoes',
     headerName: 'Ações',
-    width: 150,
+    width: 120,
     renderCell: (params) => (
       <div className="flex gap-3 mt-3">
         <DeleteOutline sx={{ color: '#FF9800', fontSize: 24 }} />
@@ -45,7 +48,7 @@ const columns = [
 
 export default function Maquininhas() {
   const [openModal, setOpenModal] = useState(false);
-  
+
   const handleAddNovoClick = () => {
     setOpenModal(true);
   };
@@ -59,18 +62,22 @@ export default function Maquininhas() {
         <Sidebar />
         <div className="w-[85vw]">
           <Header />
-          <HeaderPages titulo={"Maquininhas"} total={`${rows.length} Maquininhas`}   handleAddNovoClick={handleAddNovoClick}/>
-          <div className="flex bg-white flex-wrap shadow-md rounded-xl p-8 mx-8 mb-5 gap-9">
-            <DataGrid
-              rows={rows}
-              columns={columns}
-              pagination
-              pageSize={8}
-              rowsPerPageOptions={[8, 16, 24]}
-              checkboxSelection
-              components={{ pagination: GridPagination }}
-            />
+          <HeaderPages titulo={"Maquininhas"} total={`${rows.length} Maquininhas`} handleAddNovoClick={handleAddNovoClick} />
+          <div className="flex p-5 gap-5">
+            <div className="flex w-[58vw] bg-white flex-wrap shadow-md rounded-xl p-8 gap-9">
+              <DataGrid
+                rows={rows}
+                columns={columns}
+                pagination
+                pageSize={8}
+                rowsPerPageOptions={[8, 16, 24]}
+                checkboxSelection
+                components={{ pagination: GridPagination }}
+              />
+            </div>
+            <FiltroMaquininha />
           </div>
+
         </div>
       </div>
       <Footer />
