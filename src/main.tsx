@@ -2,7 +2,6 @@ import { createRoot } from 'react-dom/client'; // Importe createRoot corretament
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './assets/screens/Home.tsx';
 import './index.css';
 import Locais from './assets/screens/Locais.tsx';
 import Planos from './assets/screens/Planos.tsx';
@@ -18,6 +17,8 @@ import DadosLocal from './assets/screens/DadosLocal.tsx';
 import Clientes from './assets/screens/Clientes.tsx';
 import DadosCliente from './assets/screens/DadosCliente.tsx';
 import Login from './assets/screens/Login.tsx';
+import { Home } from '@mui/icons-material';
+import App from './App.tsx';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -30,7 +31,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/usuarios" element={<Usuarios />} />
         <Route path="/maquininhas" element={<Maquininhas />} />
         <Route path="/ajuda" element={<Ajuda />} />
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<App />} />
         {/* Commented out routes */}
         <Route path="/produtoras/dado" element={<DadosProdutora />} /> 
         <Route path="/maquininhas/dado" element={<DadosMaquinha />} />

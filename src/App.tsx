@@ -1,9 +1,9 @@
-import Home from './assets/screens/Home'
+import Login from './assets/screens/Login'
 
 function App() {
 
   return (
-    <Home />
+    <Login />
   )
 }
 
