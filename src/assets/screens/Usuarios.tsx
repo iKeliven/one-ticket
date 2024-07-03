@@ -10,6 +10,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TextField, Button, Chip, Stack, MenuItem } from '@mui/material';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import { Heading } from "../components/Heading";
 
 // Coloque a URL da sua API aqui
 const API_URL = 'http://localhost:5000/api/usuarios';
@@ -100,7 +101,7 @@ export default function Usuarios() {
             <div className="bg-white w-[300px] h-[fit-content] p-5 box-border gap-5 shadow-md rounded-xl">
               <div className="flex items-center gap-2 mb-4">
                 <FilterListIcon />
-                <h2 className="font-bold">Filtros</h2>
+                <Heading size="big">Filtros</Heading>
               </div>
               <div className="flex flex-col gap-4">
                 <TextField

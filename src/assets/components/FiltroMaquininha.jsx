@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextField, Button, Chip, Stack, MenuItem } from '@mui/material';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import {Heading} from './Heading'
 
 export default function FiltroMaquininha() {
   const [status, setStatus] = React.useState([]);
@@ -15,7 +16,7 @@ export default function FiltroMaquininha() {
     <div className="bg-white w-[300px] h-[fit-content] p-5 box-border gap-5 shadow-md rounded-xl">
       <div className="flex items-center gap-2 mb-4">
         <FilterListIcon />
-        <h2 className="font-bold">Filtros</h2>
+        <Heading size="big">Filtros</Heading>
       </div>
       <div className="flex flex-col gap-4">
         <TextField
@@ -35,7 +36,7 @@ export default function FiltroMaquininha() {
           <MenuItem value="Florianópolis - SC">Florianópolis - SC</MenuItem>
           <MenuItem value="São Paulo - SP">São Paulo - SP</MenuItem>
         </TextField>
-        <TextField label="Nome Produtor" />
+        <TextField label="Produtora" />
         <TextField label="Número" />
         <div>
           <h3 className="font-bold mb-2">Status</h3>

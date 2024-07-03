@@ -1,10 +1,8 @@
-import Login from './assets/screens/Login'
+import React from 'react';
+import Login from './assets/screens/Login';
 
 function App() {
-
-  return (
-    <Login />
-  )
+  return <Login />;
 }
 
-export default App
+export default App;

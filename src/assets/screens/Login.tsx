@@ -13,7 +13,7 @@ export default function Login() {
 
   const handleLogin = () => {
     if (login === 'admin' && password === 'oneticket2024') {
-      navigate('/App');
+      navigate('/admin');
     } else {
       setError('Invalid login or password');
     }

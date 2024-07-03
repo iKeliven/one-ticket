@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import Sidebar from "../components/Sidebar";
 import DashData from "../components/DashData";
 import HeaderSection from "../components/HeaderSection";
@@ -23,7 +23,6 @@ const Home: FunctionComponent = () => {
           </div>
           <div className="flex px-8 gap-5">
             <Chart />
-            
             <Atalhos />
           </div>
           <div className="flex px-8 mb-5">
@@ -31,7 +30,7 @@ const Home: FunctionComponent = () => {
           </div>
         </div>
       </div>
-    <Footer />
+      <Footer />
     </div>
   );
 };

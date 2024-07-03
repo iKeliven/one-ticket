@@ -15,7 +15,7 @@ export default function FiltroProdutora() {
     <div className="bg-white w-[300px] h-[fit-content] p-5 box-border gap-5 shadow-md rounded-xl">
       <div className="flex items-center gap-2 mb-4">
         <FilterListIcon />
-        <h2 className="font-bold">Filtros</h2>
+        <Heading size="big">Filtros</Heading>
       </div>
       <div className="flex flex-col gap-4">
         <TextField
