@@ -8,6 +8,7 @@ import Avatar from '@mui/material/Avatar';
 import { DeleteOutline, DriveFileRenameOutline } from '@mui/icons-material';
 import ModalCadastroProdutora from "../modal/ModalCadastroProdutora";
 import React, { useState } from 'react';
+import { Heading } from "../components/Heading";
 import FiltroProdutora from "../components/FiltroProdutora"
 
 
